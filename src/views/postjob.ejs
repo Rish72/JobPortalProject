@@ -1,0 +1,65 @@
+<div class="container bg-light mt-3 p-2 rounded">
+
+  <% if(errorMsg){ %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <%= errorMsg %>
+    </div>
+ <% } %>
+    
+    <form action="/" method="post">
+
+
+        <h3>Post New Job</h3>
+        <div class="input-group mb-3 ">
+            <select class="custom-select form-control" id="inputGroupSelect01">
+              <option >Select Job Category</option>
+              <option selected value="Tech">Tech</option>
+              <option value="Non Tech">Non Tech</option>
+            </select>
+          </div>
+
+          <div class="input-group mb-3">
+            <select class="custom-select form-control" id="inputGroupSelect01">
+              <option >Select Job Role</option>
+              <option value="HR">HR</option>
+              <option value="DevOps">DevOps</option>
+              <option value="MERN">MERN</option>
+              <option value="Full Stack MEAN">MEAN</option>
+              <option value="SDE">SDE</option>
+            </select>
+          </div> 
+          
+        <label for="location" class="input-text">Enter Job Location</label>
+        <input type="text" name="location" class="form-control" required>
+    
+        <div class="input-group mt-3 mb-3">
+            <label class="input-group-text" id="basic-addon1" for="title">Company Name</label>
+            <input type="text" class="form-control" aria-label="company" name="title" aria-describedby="basic-addon1" required>
+        </div>
+          
+        <div class="input-group mb-3">
+
+            <label for="salary" class="input-group-text">Salary</label>
+            <input type="number" class="form-control" name="salary" placeholder="Salary" aria-label="Salary">
+            <label class="input-group-text" for="numOfPositions">Total Positions</label>
+            <input type="number" class="form-control" aria-label="Server" name="numOfPositions" required>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group mb-3">
+                <select class="custom-select form-control " id="inputGroupSelect01" required>
+                  <option selected>Skill Set</option>
+                  <option value="HR">HR</option>
+                  <option value="DevOps">DevOps</option>
+                  <option value="MERN">MERN</option>
+                  <option value="Full Stack MEAN">MEAN</option>
+                  <option value="SDE">SDE</option>
+                </select>
+              </div> 
+            <label class="input-group-text" for="applyBy">Apply By</label>
+            <input type="date" class="form-control" name="applyBy" aria-label="apply by" required>
+        </div>
+        <div class="d-grid gap-2">
+            <button class="btn btn-outline-dark" type="submit">Submit</button>
+          </div>
+    </form>
+</div>
