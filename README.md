@@ -18,7 +18,7 @@ In this user specific components are also implemented there are 2 types of users
       - Create a account
       - apply to a job
 
-            - S E C U R I T Y -
+              - S E C U R I T Y -
 * Only a Recuiter can Perform CRUD operations
 * Forms are validated
 * Every user is verified through Email
