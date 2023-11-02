@@ -22,3 +22,4 @@ In this user specific components are also implemented there are 2 types of users
 * Only a Recuiter can Perform CRUD operations
 * Forms are validated
 * Every user is verified through Email
+* Seeker can only view and apply for the job
