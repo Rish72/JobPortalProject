@@ -28,10 +28,21 @@ export default class JobsModel{
 
         )
         console.log("newJob", newJobObj);
-        jobs.push(newJobObj)
 
     }
 
+    static jobFound(id){
+        const found = jobs.find((job) => job.id == id)
+        console.log(found);
+        return found;
+    }
+
+    //! UPDATE JOB IS HAULTED BECAUSE IT HAS SMAME SKILL PROBLEM
+    
+    // static update(jobObj){
+    //      const indexOfJob = jobs.findIndex( job => job.id == jobObj.id);
+    //      jobs[indexOfJob] = jobObj;
+    // }
 }
 
     
@@ -77,4 +88,3 @@ var jobs = [
         "applyBy" : "2-10-2023"
     }
 ]
-console.log(jobs);

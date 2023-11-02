@@ -19,16 +19,44 @@ export default class JobsController{
     }
 
     getJobPage(req, res){
-        return res.render("jobPage")
+        const id =  req.params.id;
+        const jobFound = JobsModel.jobFound(id);
+        if(jobFound){
+           res.render("jobPage", {job : jobFound, errorMsg: null})
+        }
+        else {
+          res.send("JOb is not Found");
+        }
     }
 
+    getUpdatePage(req, res){
+      // show when job is found using is which will be found in req.body
 
-    //! ADDING JOB IS NOT IMPLEMENTED && VARIFICATION USING EXPRESS VALIDATOR MIDDLEWARE
+      const id = req.params.id;
+      const jobFound = JobsModel.jobFound(id);
+      if(jobFound){
+         res.render("updateDetails", {job : jobFound, errorMsg: null})
+      }
+      else {
+        res.send("Job is not Found");
+      }
+    }
+
+  
+
+    //POST JOB
     addNewJob(req, res){
-        let data = req.body
         let jobs = JobsModel.getPostedJobs();
-        console.log(data);
-        JobsModel.addPostedJobs(data);
+        JobsModel.addPostedJobs(req.body);
         res.render("jobs", {jobs: jobs});
     }
+    //POST UPDATED JOB
+    postUpdateJob(req, res){
+        let jobs = JobsModel.getPostedJobs();
+        JobsModel.update(req.body);
+        console.log(req.body);
+        res.render("jobs", {jobs: jobs});
+    }
+
+
 }
