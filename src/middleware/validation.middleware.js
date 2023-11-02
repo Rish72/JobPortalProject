@@ -8,7 +8,7 @@ const validateReq = (req, res, next) => {
     if(!title || title.trim() == "" ){
         errors.push("Enter Valid Name")
     }
-    if(parseFloat(salary) < 2000){
+    if(parseFloat(salary) < 4){
         errors.push("salary should be greater than 2000")
     }
     if(parseFloat(numOfPositions) < 0){
