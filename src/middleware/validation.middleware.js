@@ -9,7 +9,7 @@ const validateReq = (req, res, next) => {
         errors.push("Enter Valid Name")
     }
     if(parseFloat(salary) < 4){
-        errors.push("salary should be greater than 2000")
+        errors.push("salary should be greater than 4 LPA")
     }
     if(parseFloat(numOfPositions) < 0){
         errors.push("Number of Positions should be minimum of 5")

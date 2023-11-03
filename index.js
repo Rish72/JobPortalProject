@@ -25,12 +25,14 @@ const jobController = new JobsController()
 app.get('/', jobController.getHomePage)
 app.get('/jobs', jobController.getJobs);
 app.get('/postjob', jobController.getjobForm);
-app.get('/jobPage', jobController.getJobPage);
+app.get('/jobPage/:id', jobController.getJobPage);
+app.get('/updateDetails/:id', jobController.getUpdatePage);
 
 
-app.post('/', validationMiddleware ,jobController.addNewJob)
+app.post('/', validationMiddleware ,jobController.addNewJob);
+app.post('/updateDetails', jobController.postUpdateJob);
 
 
 app.listen(3000, ()=> {
     console.log("listening on 3000");
-})
+}) 

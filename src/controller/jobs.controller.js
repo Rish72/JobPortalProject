@@ -48,6 +48,7 @@ export default class JobsController{
     addNewJob(req, res){
         let jobs = JobsModel.getPostedJobs();
         JobsModel.addPostedJobs(req.body);
+        console.log("This is controller function data", req.body);
         res.render("jobs", {jobs: jobs});
     }
     //POST UPDATED JOB
