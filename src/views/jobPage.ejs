@@ -4,38 +4,40 @@
   <div class="container ">
      <main>
         <div class="d-flex">
-            <h2>Job Title</h2>
-            <button class="btn"> Update</button>
-            <button class="btn"> Delete</button>
+            <h2 class="mt-2"><%= job.title %></h2>
+            <a class="btn mt-2 text-primary" href="/updateDetails/<%= job.id %>"> Update</a>
+            <a class="btn text-danger" href="/delete/<%= job.id %>"> Delete</a>
         </div>
-      <h4>Job role</h4>
+      <h4><%= job.role %></h4>
 
       <div>
           <p class="fw-light">
-              <i class="bi bi-geo-alt-fill"></i>Location
+              <h5 class="d-inline">Location: </h5><%= job.location %>
           </p>
           <p class="fw-light">
-              <i class="bi bi-geo-alt-fill"></i>Salary
+              <h5 class="d-inline">Salary: </h5><%= job.salary %> <span> LPA</span>
           </p>
           <p class="fw-light">
-              <i class="bi bi-geo-alt-fill"></i>Apply date
+              <h5 class="d-inline">Last date to apply: </h5><%= job.applyBy %>
           </p>
-          <p class="fw-light">\
-            f
-              <i class="bi bi-geo-alt-fill"></i>Number Of Openings
+          <p class="fw-light">
+              <h5 class="d-inline">Number of Positions: </h5><%= job.numOfPositions %>
           </p>
           <p class="fw-light">
               <i class="bi bi-geo-alt-fill"></i>Applicants
           </p>
-          
-          <button class="btn btn-sm btn-outline-info">Skills</button>
+          <% job.skills.forEach((skill) => { %>
+            <button class="btn btn-sm btn-outline-info"><%= skill %></button>
+          <% }) %>
       </div> 
 
-      <div>
-          <div class="btn btn-primary">Apply Now</div>
-      </div>
-      <div>
-          <div class="btn btn-success">Posted On</div>
+      <div class="container d-flex mt-3">
+        <div class="my-4 mx-2">
+            <div class="btn btn-primary">Apply Now</div>
+        </div>
+        <div class="my-4 mx-2">
+            <div class="btn btn-success">Posted On</div>
+        </div>
       </div>
      </main>
       

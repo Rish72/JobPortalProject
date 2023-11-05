@@ -10,14 +10,17 @@ export default class JobsModel{
         this.skills = ["Java", "Swift", "Kubernetes", "Devops"];
     }
 
+    // RETRIEVING ALL JOBS
+
     static getPostedJobs(){
         return jobs;
     }
 
+    // CREATING NEW JOB
     static addPostedJobs(jobObj){
 
         let newJobObj = new JobsModel(
-            jobs.length++,
+            jobs.length+1,
             jobObj.title,
             jobObj.role,
             jobObj.category,
@@ -27,10 +30,13 @@ export default class JobsModel{
             //skills re gya
 
         )
-        console.log("newJob", newJobObj);
-
+        jobs.push(newJobObj); 
+        console.log("This is models function data", newJobObj);
+        console.log("Jobs Length after adding ", jobs.length);
     }
 
+
+    // FINDING ALL JOBS WITH ID
     static jobFound(id){
         const found = jobs.find((job) => job.id == id)
         console.log(found);
@@ -39,10 +45,17 @@ export default class JobsModel{
 
     //! UPDATE JOB IS HAULTED BECAUSE IT HAS SMAME SKILL PROBLEM
     
+    // UPDATING THE JOB
     // static update(jobObj){
     //      const indexOfJob = jobs.findIndex( job => job.id == jobObj.id);
     //      jobs[indexOfJob] = jobObj;
     // }
+    
+    // DELETING A JOB
+    static delete(id){
+        const index = jobs.find( (job) => job.id == id);
+        jobs.splice(index, 1);
+    }
 }
 
     

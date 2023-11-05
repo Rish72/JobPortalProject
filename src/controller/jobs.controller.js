@@ -55,9 +55,18 @@ export default class JobsController{
     postUpdateJob(req, res){
         let jobs = JobsModel.getPostedJobs();
         JobsModel.update(req.body);
-        console.log(req.body);
         res.render("jobs", {jobs: jobs});
     }
 
+    deleteJob(req, res){
+      const id = req.params.id;
+      const jobFound = JobsModel.jobFound(id);
+      if(!jobFound){
+       return res.send("Job is not Found");
+     }
+      JobsModel.delete(id); 
+      let jobs = JobsModel.getPostedJobs();
+      res.render("jobs", {jobs: jobs})
+    }
 
 }
