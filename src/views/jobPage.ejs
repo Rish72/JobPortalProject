@@ -1,0 +1,46 @@
+
+<div class="container bg-light d-flex border border-dark-subtle rounded">
+        
+  <div class="container ">
+     <main>
+        <div class="d-flex">
+            <h2 class="mt-2"><%= job.title %></h2>
+            <a class="btn mt-2 text-primary" href="/updateDetails/<%= job.id %>"> Update</a>
+            <a class="btn text-danger" href="/delete/<%= job.id %>"> Delete</a>
+        </div>
+      <h4><%= job.role %></h4>
+
+      <div>
+          <p class="fw-light">
+              <h5 class="d-inline">Location: </h5><%= job.location %>
+          </p>
+          <p class="fw-light">
+              <h5 class="d-inline">Salary: </h5><%= job.salary %> <span> LPA</span>
+          </p>
+          <p class="fw-light">
+              <h5 class="d-inline">Last date to apply: </h5><%= job.applyBy %>
+          </p>
+          <p class="fw-light">
+              <h5 class="d-inline">Number of Positions: </h5><%= job.numOfPositions %>
+          </p>
+          <p class="fw-light">
+              <i class="bi bi-geo-alt-fill"></i>Applicants
+          </p>
+          <% job.skills.forEach((skill) => { %>
+            <button class="btn btn-sm btn-outline-info"><%= skill %></button>
+          <% }) %>
+      </div> 
+
+      <div class="container d-flex mt-3">
+        <div class="my-4 mx-2">
+            <div class="btn btn-primary">Apply Now</div>
+        </div>
+        <div class="my-4 mx-2">
+            <div class="btn btn-success">Posted On</div>
+        </div>
+      </div>
+     </main>
+      
+  </div>
+
+</div>    
